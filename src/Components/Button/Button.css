@@ -1,0 +1,13 @@
+.button {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 25px;
+  /* border: 1px solid red; */
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  margin: 20px 30px 10px 0;
+  opacity: unset;
+  background-color: rgb(0, 213, 255);
+}

@@ -1,0 +1,77 @@
+.movies {
+  margin-top: 15px;
+  width: calc(100vw - 430px);
+  min-height: min(30vh, 290px);
+}
+.movies h2 {
+  color: #fff;
+  margin-left: 45px;
+  font-size: 18px;
+}
+.movies .movies-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: calc(100vw - 430px);
+
+  overflow-x: scroll;
+  margin-left: 20px;
+}
+.movies .card {
+  width: 280px;
+  margin: 20px;
+  color: #fff;
+}
+::-webkit-scrollbar {
+  height: 0px;
+}
+@media (max-width: 1024px) {
+  .movies .card {
+    width: 200px;
+  }
+  .movies {
+    width: calc(100vw - 300px);
+  }
+  .movies .movies-row {
+    max-width: unset;
+  }
+}
+@media (max-width: 769px) {
+  .movies .card {
+    margin-left: 25px;
+    margin-right: 0;
+  }
+  .movies {
+    width: 100vw;
+  }
+}
+@media (max-width: 740px) {
+  .movies .card {
+    width: 140px;
+    height: 180px;
+    margin-left: 20px;
+  }
+  /* .movies .movies-row {
+    margin-left: 25px;
+  }
+  .m */
+  .movies h2 {
+    margin-left: 25px;
+  }
+  .movies .movies-row {
+    margin-left: 5px;
+  }
+}
+@media (max-width: 426px) {
+  .movies .card {
+    width: 110px;
+    height: 150px;
+    margin-left: 15px;
+  }
+
+  .movies h2 {
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+  }
+}

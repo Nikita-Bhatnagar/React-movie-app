@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+}
+.loader {
+  width: 28px;
+  height: 28px;
+  background-color: rgb(15, 15, 15);
+  border: 3px solid rgb(0, 213, 255);
+
+  border-bottom: 3px solid rgb(15, 15, 15);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 769px) {
+  .wrapper {
+    display: unset;
+  }
+}

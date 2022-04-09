@@ -1,0 +1,7 @@
+/* .right {
+  margin-top: 20px;
+} */
+.right {
+  /* min-width: 80vw; */
+  min-height: min(1000px, calc(100vh - 100px));
+}

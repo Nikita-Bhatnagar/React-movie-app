@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Components/Header/Header";
+import Wrapper from "./Components/Wrapper/Wrapper";
+import React, { useState } from "react";
+import ShowTypeContext from "./Context/ShowTypeContext";
 
 function App() {
+  const [showType, setShowType] = useState("Movies");
+  const [displayingList, setDisplayingList] = useState(false);
+  function changeShowTypeHandler(val) {
+    if (val === "Movies" || val === "TV shows") {
+      setShowType(val);
+      setDisplayingList(false);
+    } else if (val === "My List") setDisplayingList(true);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <ShowTypeContext.Provider
+        value={{ showType: showType, displayingMyList: displayingList }}
+      >
+        <Header showTypeHandler={changeShowTypeHandler}></Header>
+        <Wrapper></Wrapper>
+      </ShowTypeContext.Provider>
     </div>
   );
 }

@@ -1,15 +1,21 @@
 import "./Header.css";
 import { useContext } from "react";
-import searchIcon from "../../images/magnifying-glass-solid.svg";
+import Search from "../Search/Search";
+
 import ShowTypeContext from "../../Context/ShowTypeContext";
 function Header(props) {
   const ctx = useContext(ShowTypeContext);
   function sendShowTypeHandler(e) {
     props.showTypeHandler(e.target.textContent);
   }
+  function sendSearchQuery(query) {
+    props.searchQueryHandler(query);
+  }
   return (
     <header>
-      <div className="brand-name">Movies App</div>
+      <div className="brand-name">
+        <a href="">Movies App</a>
+      </div>
       <ul className="nav">
         <li
           className={`nav-item ${ctx.showType === "Movies" ? "selected" : ""}`}
@@ -30,16 +36,7 @@ function Header(props) {
         <div className="nav-item" onClick={sendShowTypeHandler}>
           My List
         </div>
-        <div className="search">
-          <form>
-            <input
-              type="search"
-              placeholder="Search for movies, and tv shows..."
-              className="search-input"
-            />
-          </form>
-          <img src={searchIcon} alt="search-icon" className="search-icon" />
-        </div>
+        <Search searchQueryHandler={sendSearchQuery}></Search>
       </div>
     </header>
   );

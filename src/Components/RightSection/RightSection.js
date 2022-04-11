@@ -3,6 +3,7 @@ import Movies from "../Movies/Movies";
 import "./RightSection.css";
 import ShowDetail from "../Details/ShowDetail";
 import MyList from "../MyList/MyList";
+import SearchResult from "../Search/SearchResult";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import ShowTypeContext from "../../Context/ShowTypeContext";
 function RightSection(props) {
@@ -44,6 +45,7 @@ function RightSection(props) {
         id: ID,
         showType: showsType,
       });
+
       props.displayLeft(false);
     } else {
       setShowDetails({ displayingdetails: false, id: "", showType: "" });
@@ -59,15 +61,20 @@ function RightSection(props) {
           showType={showDetails.showType}
         ></ShowDetail>
       )}
-      {!showDetails.displayingdetails && !ctx.displayingMyList && (
-        <React.Fragment>
-          <Movies type="popular"></Movies>
-          <Movies type="top_rated"></Movies>
-          <Latest></Latest>
-        </React.Fragment>
-      )}
+      {!showDetails.displayingdetails &&
+        !ctx.displayingMyList &&
+        !ctx.dispayingSearchResults && (
+          <React.Fragment>
+            <Movies type="popular"></Movies>
+            <Movies type="top_rated"></Movies>
+            <Latest></Latest>
+          </React.Fragment>
+        )}
       {ctx.displayingMyList && !showDetails.displayingdetails && (
         <MyList></MyList>
+      )}
+      {ctx.dispayingSearchResults && !showDetails.displayingdetails && (
+        <SearchResult></SearchResult>
       )}
     </div>
   );

@@ -7,9 +7,10 @@ header {
   margin-left: 35px;
   margin-right: 35px;
 }
-.brand-name {
+.brand-name a {
   font-size: 22px;
   font-weight: 700;
+  color: #fff;
 }
 .nav {
   display: flex;
@@ -68,6 +69,9 @@ header {
   .search-input {
     width: 180px;
   }
+  .search-input::placeholder {
+    font-size: 12px;
+  }
 }
 @media (max-width: 769px) {
   header {
@@ -92,6 +96,13 @@ header {
     padding-bottom: 0;
   }
   .search-input {
+    width: 180px;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
+
+  .hide-search-bar {
     display: none;
   }
   .search img {

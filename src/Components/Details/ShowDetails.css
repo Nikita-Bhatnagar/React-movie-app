@@ -1,6 +1,6 @@
 .details {
   min-height: calc(100vh - 95px);
-  max-width: calc(100vw - 390px);
+  width: calc(100vw - 350px);
   margin-top: 20px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@
   content: "";
   background-color: rgba(0, 0, 0, 0.5);
   min-height: calc(100vh - 95px);
-  max-width: calc(100vw - 390px);
+  width: calc(100vw - 350px);
 }
 .information-wrapper {
   margin: 10px 60px 20px 60px;

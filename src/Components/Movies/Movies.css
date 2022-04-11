@@ -15,11 +15,11 @@
   max-width: calc(100vw - 430px);
 
   overflow-x: scroll;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .movies .card {
-  width: 280px;
-  margin: 20px;
+  width: 240px;
+  margin: 20px 10px;
   color: #fff;
 }
 ::-webkit-scrollbar {

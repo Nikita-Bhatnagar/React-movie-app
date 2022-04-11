@@ -8,13 +8,13 @@
 .card-bigger {
   height: 150px;
   margin: 10px 0 10px 40px;
-  border-radius: 10px;
+  border-radius: 4px;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 950px;
+  max-width: 1065px;
 }
 
 .card-bigger .information {

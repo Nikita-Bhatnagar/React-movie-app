@@ -13,8 +13,10 @@ function RightSection(props) {
     showType: "",
   });
   const ctx = useContext(ShowTypeContext);
+
+  //Handling the hashchange event
   const [hash, setHash] = useState(window.location.hash.slice(1));
-  const hashChangeHandler = useCallback(() => {
+  const hashChangeHandler = useCallback((e) => {
     setHash(window.location.hash.slice(1));
   }, []);
   useEffect(() => {

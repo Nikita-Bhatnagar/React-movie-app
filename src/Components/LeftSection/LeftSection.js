@@ -1,7 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import "./LeftSection.css";
 import Card from "../Card/Card";
+import Error from "../Error/Error";
 import ShowTypeContext from "../../Context/ShowTypeContext";
+import API_KEY from "../../config";
+
 function LeftSection(props) {
   const ctx = useContext(ShowTypeContext);
 
@@ -10,19 +13,22 @@ function LeftSection(props) {
 
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   async function fetchData() {
     try {
       setIsLoading(true);
       const res = await fetch(
-        `https://api.themoviedb.org/3/${typeOfShow}/${queryType}?api_key=0b3c0af77d91e9f3216e985b5b6fe7d4&language=en-US&page=1`
+        `https://api.themoviedb.org/3/${typeOfShow}/${queryType}?api_key=${API_KEY}&language=en-US&page=1`
       );
+      if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
 
       setMovieData(data.results);
       setIsLoading(false);
     } catch (err) {
-      console.log(err.message);
+      setError(true);
+      setIsLoading(false);
     }
   }
   useEffect(() => {
@@ -46,7 +52,8 @@ function LeftSection(props) {
     <div className={`left ${props.className}`}>
       <h2>{queryType === "now_playing" ? "Now Playing" : "Airing Today"}</h2>
       {isLoading && <div className="loader"></div>}
-      {!isLoading && <div className="cards-array">{cardsArray}</div>}
+      {error && <Error message="Something went wrong"></Error>}
+      {!isLoading && !error && <div className="cards-array">{cardsArray}</div>}
     </div>
   );
 }

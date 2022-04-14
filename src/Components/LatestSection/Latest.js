@@ -2,9 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import movieBg from "../../images/movie-bg.jpg";
 import "./Latest.css";
 import ShowTypeContext from "../../Context/ShowTypeContext";
+import Error from "../Error/Error";
+import API_KEY from "../../config";
 function Latest(props) {
   const [latest, setLatest] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const ctx = useContext(ShowTypeContext);
 
   const typeOfShow = ctx.showType === "Movies" ? "movie" : "tv";
@@ -13,14 +16,16 @@ function Latest(props) {
     try {
       setIsLoading(true);
       const res = await fetch(
-        `https://api.themoviedb.org/3/${typeOfShow}/latest?api_key=0b3c0af77d91e9f3216e985b5b6fe7d4&language=en-US`
+        `https://api.themoviedb.org/3/${typeOfShow}/latest?api_key=${API_KEY}&language=en-US&include_adult=false`
       );
+      if (!res.ok) throw new Error("Something went wrong");
       const data = await res.json();
       setLatest(data);
 
       setIsLoading(false);
     } catch (err) {
-      console(err.message);
+      setError(true);
+      setIsLoading(false);
     }
   }
   useEffect(() => {
@@ -33,7 +38,8 @@ function Latest(props) {
     <section className="latest">
       <h2>Latest</h2>
       {isLoading && <div className="loader"></div>}
-      {!isLoading && (
+      {error && <Error message="Something went wrong"></Error>}
+      {!isLoading && !error && (
         <div
           className="card-bigger"
           style={{ backgroundImage: `url(${imageUrl})` }}

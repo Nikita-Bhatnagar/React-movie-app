@@ -19,6 +19,11 @@
   font-size: 48px;
   font-weight: 900;
 }
+.title-and-fav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .information-wrapper .stats {
   display: flex;
   align-items: center;
@@ -42,22 +47,19 @@
   margin-top: 15px;
 }
 .favourite {
-  background-color: #fff;
+  background-color: transparent;
   color: rgb(0, 213, 255);
-  padding: 6px 25px;
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  border: 2px solid rgb(0, 213, 255);
-  border-radius: 6px;
+  padding: 2px 8px;
+  border: 2px solid #fff;
+  border-radius: 4px;
   outline: none;
+  margin-left: 15px;
 }
 .favourite img {
-  width: 15px;
+  width: 18px;
   filter: invert(1) brightness(0) invert(71%) sepia(40%) saturate(5035%)
     hue-rotate(150deg) brightness(103%) contrast(108%);
-  margin-right: 8px;
-  margin-bottom: -2px;
+  margin-top: 3px;
 }
 .cast {
   margin-top: 30px;

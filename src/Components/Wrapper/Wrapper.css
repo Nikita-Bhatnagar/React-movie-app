@@ -4,10 +4,10 @@
 .loader {
   width: 28px;
   height: 28px;
-  background-color: rgb(15, 15, 15);
+  background-color: var(--colors-backgorund);
   border: 3px solid rgb(0, 213, 255);
 
-  border-bottom: 3px solid rgb(15, 15, 15);
+  border-bottom: 3px solid var(--colors-backgorund);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 40px auto;

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ShowTypeContext from "../../Context/ShowTypeContext";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
+import API_KEY from "../../config";
 function SearchResult() {
   const ctx = useContext(ShowTypeContext);
   const [resultsData, setResultsData] = useState([]);
@@ -9,11 +10,11 @@ function SearchResult() {
 
   async function fetchSearchResults(query, pageNum) {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=0b3c0af77d91e9f3216e985b5b6fe7d4&query=${query}&language=en-US&page=${pageNum}&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${query}&language=en-US&page=${pageNum}&include_adult=false`
     );
-    console.log(response);
+
     const data = await response.json();
-    console.log(data);
+
     setResultsData(data.results);
   }
   let results = "";
@@ -23,10 +24,7 @@ function SearchResult() {
     if (ctx.searchQuery) {
       fetchSearchResults(ctx.searchQuery, 1);
       setIsLoading(false);
-      // console.log(resultsData.total_pages);
     }
-
-    // setIsLoading(false);
   }, [ctx.searchQuery]);
   let count = 0;
   if (resultsData) {

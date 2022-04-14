@@ -1,7 +1,7 @@
 .left {
   margin-top: 20px;
   margin-left: 20px;
-  color: #fff;
+
   max-height: calc(100vh - 100px);
   overflow-y: scroll;
   min-width: 330px;
@@ -14,14 +14,11 @@
   width: 2px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgb(65, 65, 65);
+  background-color: var(--colors-scroll-track);
   border-radius: 10px;
 }
-/* ::-webkit-scrollbar-track:hover {
-  background-color: rgb(220, 218, 218);
-} */
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(154, 152, 152);
+  background-color: var(--colors-scroll-thumb);
   border-radius: 10px;
 }
 .left .loader {
@@ -42,6 +39,9 @@
     justify-content: flex-start;
     width: 100vw;
     overflow-x: scroll;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
   }
   .left .card {
     margin-left: 25px;

@@ -10,6 +10,7 @@ function Search(props) {
     setDisplaySearchBar(false);
     searchQueryRef.current.value = "";
   }
+  //for displaying or hiding searchbar in mobile view
   const [displayingSearchBar, setDisplaySearchBar] = useState(false);
   function displaySearchBar(e) {
     setDisplaySearchBar(true);

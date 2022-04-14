@@ -4,7 +4,6 @@
   min-height: min(30vh, 290px);
 }
 .movies h2 {
-  color: #fff;
   margin-left: 45px;
   font-size: 18px;
 }
@@ -51,10 +50,6 @@
     height: 180px;
     margin-left: 20px;
   }
-  /* .movies .movies-row {
-    margin-left: 25px;
-  }
-  .m */
   .movies h2 {
     margin-left: 25px;
   }

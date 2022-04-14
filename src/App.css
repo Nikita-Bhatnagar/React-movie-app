@@ -6,9 +6,24 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 .container {
-  background-color: rgb(15, 15, 15);
+  background-color: var(--colors-backgorund);
   height: 100vh;
   overflow-y: scroll;
   max-width: 1550px;
   margin: 0 auto;
+  color: var(--colors-bright-text);
+}
+.container[data-theme="dark"] {
+  --colors-backgorund: rgb(15, 15, 15);
+  --colors-bright-text: #fff;
+  --colors-dull-text: rgb(151, 149, 149);
+  --colors-scroll-track: rgb(65, 65, 65);
+  --colors-scroll-thumb: rgb(154, 152, 152);
+}
+.container[data-theme="light"] {
+  --colors-backgorund: #fff;
+  --colors-bright-text: #000;
+  --colors-dull-text: rgb(92, 91, 91);
+  --colors-scroll-track: rgb(154, 152, 152);
+  --colors-scroll-thumb: rgb(65, 65, 65);
 }

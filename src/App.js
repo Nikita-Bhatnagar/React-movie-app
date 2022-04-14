@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="container" data-theme="light">
       <ShowTypeContext.Provider
         value={{
           showType: showType,

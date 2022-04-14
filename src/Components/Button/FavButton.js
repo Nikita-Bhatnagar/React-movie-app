@@ -7,10 +7,17 @@ function FavButton(props) {
   if (localStorage.getItem("showsData")) {
     showsData = JSON.parse(localStorage.getItem("showsData"));
   }
+  //checking if the id is already in list
   useEffect(() => {
     if (
-      showsData[props.showType].some((elem) => {
-        return props.id === elem.id;
+      showsData["movie"].some((elem) => {
+        return props.id == elem.id;
+      })
+    ) {
+      setIsInList(true);
+    } else if (
+      showsData["tv"].some((elem) => {
+        return props.id == elem.id;
       })
     ) {
       setIsInList(true);
@@ -45,7 +52,6 @@ function FavButton(props) {
     <button className="favourite" type="button" onClick={addToListHandler}>
       {!isInList && <img src={heartIconRegular} alt="heart-icon-unfilled" />}
       {isInList && <img src={heartIconSolid} alt="heart-icon-filled" />}
-      ADD TO LIST
     </button>
   );
 }
